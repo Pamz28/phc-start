@@ -24,6 +24,7 @@ require 'connect.php';
 
 		$Sql .= "SELECT item.Item_Code,item.NameTH,item.SalePrice AS Price ";
 		$Sql .= "FROM item ";
+		$Sql .= "INNER JOIN item_category_sub ON item.CategorySub_Code = item_category_sub.CategorySub_Code ";
 		$Sql .= "WHERE (item.Item_Code LIKE '%$Search%' OR item.NameTH LIKE '%$Search%') ";
 		$Sql .= "AND item.Grp_1 = 1  AND item.IsCancel = 0 ";
 		$Sql .= "ORDER BY item.Item_Code ASC LIMIT 20";
@@ -59,7 +60,8 @@ require 'connect.php';
 	<script src="assets/dist/js/bootstrap.bundle.min.js "></script>
     <script src="assets/dist/js/sweetalert2.min.js"></script>
 </head>
-<!-- 22222222 -->
+<!-- 22222222 -->   
+
 <body>
 	<div class="topnav">
         <a href="Dispenser_DocNo.php"><img src="img/left-blue-arrow.png" width="30px" height="30px" /></a>
